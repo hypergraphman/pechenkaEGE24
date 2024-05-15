@@ -32,8 +32,10 @@ def p_to_n(a, p):
 def f(n):
     new_n = n_to_p(n, 80)
     for _ in range(2):
-        odd = sum_odd(new_n)
-        even = sum_even(new_n)
+        # odd = sum_odd(new_n)
+        odd = sum(filter(lambda x: x % 2, new_n))
+        # even = sum_even(new_n)
+        even = sum(filter(lambda x: x % 2 == 0, new_n))
         if odd > even:
             new_n += [n_to_p(odd, 80)[-1]]
         else:
